@@ -10,9 +10,14 @@
 		http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 	<!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
 	<dubbo:application name="dubbo-consumer" />
-	<dubbo:consumer check="false"/>
+	<dubbo:consumer retries="0" timeout="120000" check="false"/>
 	<!-- 使用zookeeper注册中心暴露发现服务地址 -->
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	<dubbo:annotation/>
+	<context:component-scan base-package="net.aimeizi.dubbo.controller">
+		<context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Reference"/>
+	</context:component-scan>
+	<!-- 使用@Autowired或@Resource注解时需要使用dubbo:reference来声明 -->
 	<dubbo:reference interface="net.aimeizi.dubbo.service.UserService" id="userService"/>
 	<dubbo:reference interface="net.aimeizi.dubbo.service.DemoService" id="demoService"/>
 </beans>
