@@ -5,7 +5,7 @@ import net.aimeizi.dubbo.entity.User;
 public interface UserService {
 
 	/**
-	 * ±£´æUser,¼ÆËã³öÄêÁä
+	 * ä¿å­˜User,è®¡ç®—å‡ºå¹´é¾„
 	 * @param user
 	 * @return
 	 */

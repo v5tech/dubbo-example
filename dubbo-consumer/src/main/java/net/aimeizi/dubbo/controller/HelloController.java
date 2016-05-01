@@ -4,7 +4,6 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import net.aimeizi.dubbo.entity.User;
 import net.aimeizi.dubbo.service.DemoService;
 import net.aimeizi.dubbo.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,26 +11,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.annotation.Resource;
-
 /**
  *
- * dubbo Ïû·ÑÕß
+ * dubbo æ¶ˆè´¹è€…
  *
- * @Reference ×¢½âĞèÒªÔÚ dubbo consumerÖĞ×öÈçÏÂÅäÖÃ
+ * @Reference æ³¨è§£éœ€è¦åœ¨ dubbo consumerä¸­åšå¦‚ä¸‹é…ç½®
  *
  * <dubbo:annotation/>
  *	<context:component-scan base-package="net.aimeizi.dubbo.controller">
  *	<context:include-filter type="annotation" expression="com.alibaba.dubbo.config.annotation.Reference"/>
  * </context:component-scan>
  *
- * ÈôÒªÊ¹ÓÃ@Autowired»ò@Resource×¢½âĞèÒªÏÔÊ½ÉùÃ÷bean
+ * è‹¥è¦ä½¿ç”¨@Autowiredæˆ–@Resourceæ³¨è§£éœ€è¦æ˜¾å¼å£°æ˜bean
  *
- * Ê¹ÓÃ@Autowired»ò@Resource×¢½âÊ±ĞèÒªÊ¹ÓÃdubbo:referenceÀ´ÉùÃ÷
+ * ä½¿ç”¨@Autowiredæˆ–@Resourceæ³¨è§£æ—¶éœ€è¦ä½¿ç”¨dubbo:referenceæ¥å£°æ˜
  * <dubbo:reference interface="net.aimeizi.dubbo.service.UserService" id="userService"/>
  * <dubbo:reference interface="net.aimeizi.dubbo.service.DemoService" id="demoService"/>
  *
- * ÒÔÉÏµÄÅäÖÃ¾ùĞèÒªÔÚspring mvcµÄDispatcherServletÅäÖÃÖĞÏÔÊ½ÅäÖÃdubbo consumerµÄÅäÖÃ.Èç/WEB-INF/applicationContext-dubbo-consumer.xml ·ñÔòÔÚControllerÖĞ·şÎñ±¨NullPointException
+ * ä»¥ä¸Šçš„é…ç½®å‡éœ€è¦åœ¨spring mvcçš„DispatcherServleté…ç½®ä¸­æ˜¾å¼é…ç½®dubbo consumerçš„é…ç½®.å¦‚/WEB-INF/applicationContext-dubbo-consumer.xml å¦åˆ™åœ¨Controllerä¸­æœåŠ¡æŠ¥NullPointException
  * <servlet>
  *	<servlet-name>mvc-dispatcher</servlet-name>
  *		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
