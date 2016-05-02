@@ -2,6 +2,16 @@
 
 dubbo 分布式服务配置案例
 
+升级到dubbox 2.8.4
+
+dubbox 2.8.4编译安装
+
+```
+https://github.com/dangdangdotcom/dubbox/archive/dubbox-2.8.4.zip
+修改根pom中curator_version版本为<curator_version>2.6.0</curator_version>
+mvn install -Dmaven.test.skip=true
+```
+
 ### 1. 项目结构介绍
 
 dubbo-service 公共接口服务
@@ -67,7 +77,7 @@ public class UserServiceImpl implements UserService {
 <dependency>
     <groupId>com.alibaba</groupId>
     <artifactId>dubbo</artifactId>
-    <version>2.5.3</version>
+    <version>2.8.4</version>
     <exclusions>
 	<exclusion>
 	    <artifactId>spring</artifactId>
